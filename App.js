@@ -1,6 +1,5 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {createAppContainer, createDrawerNavigator} from 'react-navigation';
 import {
   PanGestureHandler,
   TapGestureHandler,
@@ -8,28 +7,26 @@ import {
   State,
 } from 'react-native-gesture-handler';
 
-class App extends React.Component {
+export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
         <Text>Open up App.js to start working on your app!</Text>
         <PanGestureHandler
           onHandlerStateChange={e => {
-            console.log('onHandlerStateChange', e);
+            console.log('onHandlerStateChange', e.nativeEvent);
           }}
           onGestureEvent={e => {
-            console.log('onGestureEvent', e);
+            console.log('onGestureEvent', e.nativeEvent);
           }}>
           <View style={{height: 200, backgroundColor: 'tomato'}}>
-            <Text>PanGestureHandler</Text>
+            <Text>PanGestureHandler!</Text>
           </View>
         </PanGestureHandler>
       </View>
     );
   }
 }
-
-export default createAppContainer(createDrawerNavigator({App}));
 
 const styles = StyleSheet.create({
   container: {
